@@ -18,3 +18,10 @@ This project creates a realistic 3D pool ball with the number "8" using Python a
 ### Installing pycairo
 To install pycairo, use:
 pip install pycairo
+
+## AUTHORS
+145352 Nasengo Nicole
+151751 Mary Ng’ang’a
+152134 Kimani Emily
+150767 Bundi Leon Munene
+151780 Raychelle Kalekye
