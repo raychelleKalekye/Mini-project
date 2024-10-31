@@ -10,14 +10,17 @@ context = cairo.Context(surface)
 context.set_source_rgb(2/255,85/255,38/255)
 context.paint()
 
+#   'dots'
+for _ in range(700):
+    x = random.randint(0, WIDTH)
+    y = random.randint(0, HEIGHT)
+    size = random.uniform(1, 3)  # Random 'dot' size
+    context.set_source_rgb(236/255, 253/255, 0/255)  # yellow
+    context.arc(x, y, size, 0, 2 * math.pi)
+    context.fill()    
+
 
 def draw_sphere(context, center_x, center_y, radius):
-
-
-
-
-
-
 # main circle for the ball
     context.arc(center_x, center_y, radius, 0, 2 * math.pi)
     gradient=cairo.RadialGradient(center_x - radius * 0.5, center_y - radius * 0.5, radius * 0.1, center_x, center_y, radius)
