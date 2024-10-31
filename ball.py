@@ -1,9 +1,11 @@
+import math
+import cairo
 
-
-
-
-
-
+#  canvas dimensions
+WIDTH, HEIGHT = 600, 600
+BALL_RADIUS = 200
+surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, WIDTH, HEIGHT)
+context = cairo.Context(surface)
 
 
 def draw_sphere(context, center_x, center_y, radius):
@@ -31,3 +33,10 @@ def draw_sphere(context, center_x, center_y, radius):
     context.set_source(shadow_gradient)
     context.arc(white_circle_x, white_circle_y, radius * 0.45, 0, 2 * math.pi)
     context.fill()
+
+# the 3D pool ball on the canvas
+draw_sphere(context, WIDTH // 2, HEIGHT // 2, 200)
+
+# Saving
+surface.write_to_png("3d_pool_ball.png")
+print("3D pool ball image created!")
