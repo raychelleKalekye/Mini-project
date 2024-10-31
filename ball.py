@@ -57,9 +57,21 @@ def draw_sphere(context, center_x, center_y, radius):
     context.move_to(white_circle_x - 29, white_circle_y + 34)  # Adjust position of the "8"
     context.show_text("8")
 
+def draw_shadow(context, center_x, center_y, radius):
+    """Draws a soft shadow under the pool ball."""
+    shadow_gradient = cairo.RadialGradient(
+        center_x, center_y + radius, radius * 0.2,
+        center_x, center_y + radius, radius * 1.2
+    )
+    shadow_gradient.add_color_stop_rgba(0, 0, 0, 0, 0.6)  # Dark center
+    shadow_gradient.add_color_stop_rgba(1, 0, 0, 0, 0)    # Transparent edge
+    context.set_source(shadow_gradient)
+    context.arc(center_x, center_y + radius * 0.6, radius, 0, 2 * math.pi)
+    context.fill()
 
 # the 3D pool ball on the canvas
 draw_sphere(context, WIDTH // 2, HEIGHT // 2, 200)
+draw_shadow(context, WIDTH // 2, HEIGHT // 2, BALL_RADIUS)
 
 # Saving
 surface.write_to_png("3d_pool_ball.png")
