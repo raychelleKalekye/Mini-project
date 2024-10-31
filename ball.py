@@ -40,6 +40,13 @@ def draw_sphere(context, center_x, center_y, radius):
     context.arc(white_circle_x, white_circle_y, radius * 0.45, 0, 2 * math.pi)
     context.fill()
 
+ #  "8" number 
+    context.set_source_rgb(0, 0, 0)  # Set color to black for the number
+    context.select_font_face("Arial", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+    context.set_font_size(radius * 0.4)
+    context.move_to(white_circle_x - 25, white_circle_y + 25)  # Adjust position of the "8"
+    context.show_text("8")
+
 # the 3D pool ball on the canvas
 draw_sphere(context, WIDTH // 2, HEIGHT // 2, 200)
 
