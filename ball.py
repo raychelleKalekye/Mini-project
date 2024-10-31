@@ -19,7 +19,13 @@ def draw_sphere(context, center_x, center_y, radius):
     context.arc(center_x, center_y, radius, 0, 2 * math.pi)
     context.fill()
 #white circle
-    context.set_source_rgb(1, 1, 1)  # Set color to white
+    shading = cairo.RadialGradient(center_x + radius * 0.2, center_y - radius * 0.2, radius * 0.05,
+        center_x + radius * 0.2, center_y - radius * 0.2, radius * 0.4
+    )
+    shading.add_color_stop_rgb(0, 1, 1, 1)  # White center
+    shading.add_color_stop_rgb(1, 0.9, 0.9, 0.9)  # Slightly grey edge
+    context.set_source(shading)  # Set color to white
+    
     white_circle_x = center_x + radius * 0.2  
     white_circle_y = center_y - radius * 0.2
     context.arc(white_circle_x, white_circle_y, radius * 0.4, 0, 2 * math.pi)
