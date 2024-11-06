@@ -32,9 +32,9 @@ def draw_sphere(context, center_x, center_y, radius):
     shading = cairo.RadialGradient(center_x + radius * 0.2, center_y - radius * 0.2, radius * 0.05,
         center_x + radius * 0.2, center_y - radius * 0.2, radius * 0.4
     )
-    shading.add_color_stop_rgb(0, 1, 1, 1)  # White center
-    shading.add_color_stop_rgb(1, 0.9, 0.9, 0.9)  # Slightly grey edge
-    context.set_source(shading)  # Set color to white
+    shading.add_color_stop_rgb(0, 1, 1, 1) 
+    shading.add_color_stop_rgb(1, 0.9, 0.9, 0.9)  
+    context.set_source(shading) 
     
     white_circle_x = center_x 
     white_circle_y = center_y 
